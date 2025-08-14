@@ -61,6 +61,8 @@ void addBook(std::vector<Book>& books) {
     // 5. Set the book's 'isAvailable' status to true.
     // 6. Add the new book object to the 'books' vector using push_back().
     // 7. Print a confirmation message.
+    Book books;
+    books.size()+1;
 }
 
 // STUDENT TASK: Implement the displayAllBooks function.
