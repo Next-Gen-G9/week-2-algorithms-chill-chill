@@ -20,24 +20,7 @@ using namespace std;
 //
 struct Book {
     // Add member variables here
-<<<<<<< HEAD
-    
-    int id;
-    string title;   
-    string author;
-    bool isAvailable;
-    // You can add a constructor if needed
-    Book(int bookId, const string& bookTitle, const string& bookAuthor, bool
-            available = true)
-        : id(bookId), title(bookTitle), author(bookAuthor), isAvailable(available) {}
-    // You can also add member functions if needed
-    void display() const {
-        cout << "ID: " << id << ", Title: " << title
-        
-
-=======
    int id;
->>>>>>> c68ab2948f5c18507478ea96fe4260ac131cd8ae
 };
 
 #endif // BOOK_H
