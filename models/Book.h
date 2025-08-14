@@ -7,11 +7,16 @@ using namespace std;
 // This exercise covers: struct, std::string
 //
 // 1. Define a struct named 'Book'.
+
 // 2. Add the following member variables inside the struct:
 //    - an 'int' named 'id'
+       int id;
 //    - a 'std::string' named 'title'
+         string title;
 //    - a 'std::string' named 'author'
+            string author;
 //    - a 'bool' named 'isAvailable'
+            bool isAvailable;
 //
 struct Book {
     // Add member variables here
@@ -21,5 +26,5 @@ struct Book {
     bool isAvailable;
 
 };
-//helli
-#endif  BOOK_H
+
+#endif // BOOK_H
