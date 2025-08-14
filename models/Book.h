@@ -20,6 +20,7 @@ using namespace std;
 //
 struct Book {
     // Add member variables here
+<<<<<<< HEAD
     
     int id;
     string title;   
@@ -34,6 +35,9 @@ struct Book {
         cout << "ID: " << id << ", Title: " << title
         
 
+=======
+   int id;
+>>>>>>> c68ab2948f5c18507478ea96fe4260ac131cd8ae
 };
 
 #endif // BOOK_H
