@@ -61,8 +61,14 @@ void addBook(std::vector<Book>& books) {
     // 5. Set the book's 'isAvailable' status to true.
     // 6. Add the new book object to the 'books' vector using push_back().
     // 7. Print a confirmation message.
-    Book books;
-    books.size()+1;
+    Book newBook;
+    newBook.id=books.size()+1;
+    std::cout<<"Enter title:";std::cin>>newBook.title;
+    std::cout<<"Enter author:";std:cin>>newBook.author;
+    newBook.isAvailable=true;
+    books.push_back(newBook);
+    std::cout<<"Book"<<newBook.title<<"by "<<newBook.author<<"ID "<<newBook.id<<"succesfully"<<newBook.isAvailable;
+
 }
 
 // STUDENT TASK: Implement the displayAllBooks function.
@@ -71,6 +77,7 @@ void displayAllBooks(const std::vector<Book>& books) {
     // 1. Print a formatted header for the book list.
     // 2. Create a loop that iterates through the entire 'books' vector.
     // 3. Inside the loop, print the details of each book (id, title, author, availability).
+
 }
 
 // STUDENT TASK: Implement findBookById to return a pointer.
@@ -80,6 +87,11 @@ Book* findBookById(std::vector<Book>& books, int id) {
     // 2. Inside the loop, check if the 'id' of the current book matches the 'id' parameter.
     // 3. If it matches, return the memory address of that book object. (Hint: use the '&' operator).
     // 4. If the loop finishes and no book is found, return 'nullptr'.
+    for(auto& book : books){
+        if(book.id=id){
+            return &book;
+        }
+    }
     return nullptr; // Placeholder
 }
 
@@ -92,6 +104,15 @@ void checkOutBook(std::vector<Book>& books) {
     // 4. If it's a valid pointer, check if the book 'isAvailable'.
     // 5. If it is available, set its 'isAvailable' status to false (Hint: use -> or (*). ).
     // 6. Print confirmation or error messages for each case (not found, already checked out, success).
+    int bookId;
+    std::cout<<"ID of the book to check out:";
+    Book* bookptr=findBookById(books,bookId);
+    if(bookptr != nullptr){
+        if(bookptr->isAvailable){
+            bookptr->isAvailable=false;
+            
+        }else std::cout<<"Error the book is already check out "<<std::endl;
+    }else std::cout<<"Error the book not found";
 }
 
 // STUDENT TASK: Implement returnBook (similar to checkOutBook).
