@@ -77,6 +77,20 @@ void displayAllBooks(const std::vector<Book>& books) {
     // 1. Print a formatted header for the book list.
     // 2. Create a loop that iterates through the entire 'books' vector.
     // 3. Inside the loop, print the details of each book (id, title, author, availability).
+    std::cout<<"ID\tTitle\tAuthor\tisAvailable\n";
+    std::cout<<"--------------------------------\n";
+    if(books.empty()){
+        cout<<"NO book Availability!\n";
+    }
+    for(const auto & book : books){
+        std::cout<<book.id<<"\t"<<book.title<<"\t"<<book.author<<"\t"<<book.isAvailable<<"\t";
+        if(book.isAvailable){
+            cout<<"Available !";
+        }
+        else{
+            cout<<"Unavailable";
+        }
+    }
 
 }
 

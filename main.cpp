@@ -16,6 +16,12 @@ void showPromotionalBooks() {
     // 2. Initialize it with three hard-coded book IDs, for example: {1, 5, 10}.
     // 3. Print a header, like "--- Today's Featured Books (IDs) ---".
     // 4. Write a loop to iterate through the 'promoIDs' array and print each ID.
+    int promoIDs[]={1,5,10};
+    int promoBook = sizeof(promoIDs)/sizeof(promoIDs[0]);
+    std::cout<<"---Today's Featured Books (IDs)---";
+    for(int i=0; i<promoBook;i++){
+        std::cin>>promoIDs[i];
+    }
 }
 
 // --- MAIN APPLICATION (FRAMEWORK) ---
@@ -47,6 +53,17 @@ void runAdminSession() {
         // Example case:
         // case 1: addBook(libraryBooks); booksAreSorted = false; break;
         // case 7: showPromotionalBooks(); break; // <-- Your new array function
+        int op;
+        std::cout<<"Choose your op:";std::cin>>op;
+        switch (op)
+        {
+        case 1:
+            std::cout<<"addBook(librayBooks)";
+            break;
+        
+        default:
+            break;
+        }
     }
 }
 
