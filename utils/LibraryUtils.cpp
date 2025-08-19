@@ -126,23 +126,50 @@ void checkOutBook(std::vector<Book>& books) {
 // This exercise covers: functions, pointers (*)
 void returnBook(std::vector<Book>& books) {
     // 1. Prompt for the book ID to return.
+     std::cout<<"ID of the book to return:";
+    int bookId;
     // 2. Get the book pointer using findBookById().
+    Book* bookptr = findBookById(books, bookId);
+
     // 3. Check if the pointer is valid.
+    if (bookptr == nullptr) {
+        std::cout << "Error: Book not found." << std::endl;
+        return;
+    }
     // 4. If valid, check if the book is NOT available.
+    if (bookptr->isAvailable) {
+        std::cout << "Error: Book is already available." << std::endl;
+        return;
+    }
     // 5. If it's not available, set 'isAvailable' to true.
+    bookptr->isAvailable = true;
     // 6. Print confirmation or error messages.
+    std::cout << "Book '" << bookptr->title << "' returned successfully." << std::endl;
+    std::cout << "ID: " << bookptr->id << ", Author: " << bookptr->author << ", Availability: " << (bookptr->isAvailable ? "Available" : "Checked Out") << std::endl;
 }
 
 // STUDENT TASK: Implement the Bubble Sort algorithm.
 // This exercise covers: algorithms
 void sortBooksByTitle(std::vector<Book>& books) {
     // 1. Get the number of books, 'n'.
+   
     // 2. Implement the classic Bubble Sort nested loops.
     //    - The outer loop runs from i = 0 to n-2.
     //    - The inner loop runs from j = 0 to n-i-2.
     // 3. Inside the inner loop, compare the 'title' of book[j] with book[j+1].
     // 4. If book[j].title is greater than book[j+1].title, swap the two elements. (Hint: std::swap is useful here).
     // 5. After the loops complete, print a confirmation message.
+    int n = books.size();
+    for (int i = 0; i < n - 1; ++i)
+    {
+        for (int j = 0; j < n - i - 1; ++j)
+        {
+            if (books[j].title > books[j + 1].title)
+            {
+                std::swap(books[j], books[j + 1]);
+            }
+        }
+    }
 }
 
 // STUDENT TASK: Implement the Binary Search algorithm.
@@ -158,4 +185,15 @@ void binarySearchByTitle(const std::vector<Book>& books) {
     //    - If the mid book's title is less than the search term, set 'low = mid + 1'.
     //    - Otherwise, set 'high = mid - 1'.
     // 6. If the loop finishes without finding the book, print a "not found" message.
-}
+    std::string searchTitle;
+    std::cout << "Title to find: ";
+    std::cin >> searchTitle;
+    int low = 0;
+    int high = books.size() - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (books[mid].title == searchTitle) {
+            std::cout << "Book found: ID: " << books[mid].id << ", Title: " << books[mid].title;
+        }
+    }
+}        
