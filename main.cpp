@@ -6,7 +6,7 @@
 #include "utils/LibraryUtils.h"
 
 // --- Forward Declarations for Menu Functions ---
-void runAdminSession();
+void runAdminSession(std::vector<User>& users);
 void runUserSession();
 
 // STUDENT TASK: Implement a function that uses a fixed-size array.
@@ -16,26 +16,16 @@ void showPromotionalBooks() {
     // 2. Initialize it with three hard-coded book IDs, for example: {1, 5, 10}.
     // 3. Print a header, like "--- Today's Featured Books (IDs) ---".
     // 4. Write a loop to iterate through the 'promoIDs' array and print each ID.
-    int promoIDs[]={1,5,10};
-    int promoBook = sizeof(promoIDs)/sizeof(promoIDs[0]);
-    std::cout<<"---Today's Featured Books (IDs)---";
-    for(int i=0; i<promoBook;i++){
-        std::cin>>promoIDs[i];
-    }
 }
 
 // --- MAIN APPLICATION (FRAMEWORK) ---
 
 int main() {
-    // This part handles login and routing to the correct session.
-    // It is provided as a framework for your functions.
     std::vector<User> users = loadUsers();
     while (true) {
-        // ... Login menu and logic ...
-        // [The full menu logic from the previous complete answer would go here]
         Role userRole = loginUser(users); // Example call
         if (userRole == Role::ADMIN) {
-            runAdminSession();
+            runAdminSession(users); // Pass users by reference
         } else if (userRole == Role::USER) {
             runUserSession();
         }
@@ -43,9 +33,8 @@ int main() {
     return 0;
 }
 
-void runAdminSession() {
-    // The main loop for the admin is provided.
-    // It calls the functions you will implement in LibraryUtils.cpp.
+// Update function signature to accept users by reference
+void runAdminSession(std::vector<User>& users) {
     std::vector<Book> libraryBooks = loadBooks();
     bool booksAreSorted = false;
     while(true) {
@@ -53,8 +42,6 @@ void runAdminSession() {
         // Example case:
         // case 1: addBook(libraryBooks); booksAreSorted = false; break;
         // case 7: showPromotionalBooks(); break; // <-- Your new array function
-        
-        
     }
 }
 
