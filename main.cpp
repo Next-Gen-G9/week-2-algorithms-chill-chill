@@ -53,17 +53,8 @@ void runAdminSession() {
         // Example case:
         // case 1: addBook(libraryBooks); booksAreSorted = false; break;
         // case 7: showPromotionalBooks(); break; // <-- Your new array function
-        int op;
-        std::cout<<"Choose your op:";std::cin>>op;
-        switch (op)
-        {
-        case 1:
-            std::cout<<"addBook(librayBooks)";
-            break;
         
-        default:
-            break;
-        }
+        
     }
 }
 

@@ -132,7 +132,7 @@ void returnBook(std::vector<Book>& books) {
     Book* bookptr = findBookById(books, bookId);
 
     // 3. Check if the pointer is valid.
-    if (bookptr == nullptr) {
+    if (bookptr == nullptr) {    
         std::cout << "Error: Book not found." << std::endl;
         return;
     }
